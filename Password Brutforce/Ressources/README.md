@@ -20,7 +20,7 @@ This page contains a login form that accepts a username and password via query p
 
 These characteristics make the login endpoint vulnerable to a brute-force attack.
 
-We use a [Bash Script]() to automate a dictionary-based attack using a password list.
+We use a [Bash Script](https://github.com/Joseph-Enkaoua/Darkly/blob/main/Password%20Brutforce/Ressources/bruteforce.sh) to automate a dictionary-based attack using a password list.
 
 
 ## How to exploit it

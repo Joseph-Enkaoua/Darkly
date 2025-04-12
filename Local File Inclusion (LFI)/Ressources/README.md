@@ -15,7 +15,7 @@ Depending on how the server handles the parameter, we could pass any filename co
 
 A commonly hacked sensitive file is the /etc/passwd containing a trace of every computer registered user.
 
-We use the script `traverse.py` to search an alert containing the flag. We add `../` to the searched path every circle until the flag is found or the defined limit is exceeded.
+We use a [script](https://github.com/Joseph-Enkaoua/Darkly/blob/main/Local%20File%20Inclusion%20(LFI)/Ressources/traverse.py) to search an alert containing the flag. We add `../` to the searched path every circle until the flag is found or the defined limit is exceeded.
 
 The script can run with xpipe if we want to avoid creating a virtual environment: `pipx run --spec requests python3 traverse.py`
 
