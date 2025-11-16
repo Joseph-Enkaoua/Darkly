@@ -1,0 +1,14 @@
+{
+  "name": "scraping-hidden-directory",
+  "version": "1.0.0",
+  "description": "Scripts to scrape .hidden directory and find the flag",
+  "main": "fetch.js",
+  "scripts": {
+    "fetch": "node fetch.js",
+    "process": "node post-processing.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
