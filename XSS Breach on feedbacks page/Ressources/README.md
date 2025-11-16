@@ -53,6 +53,17 @@ While this confirmed the XSS vulnerability, it didn't immediately reveal the fla
 
 ## How to exploit the breach / Why is it a problem
 
+**Important distinction**: Simply modifying HTML in your browser's developer tools only affects your own view - it doesn't impact other users. The critical difference with XSS is that the malicious code gets **submitted to the server** through the form and then **rendered back** in the response.
+
+In this vulnerability:
+
+1. An attacker submits malicious HTML/JavaScript through the feedback form
+2. The server processes the form submission and includes the malicious content in the response
+3. The malicious code is rendered as HTML without proper sanitization
+4. The JavaScript executes in the attacker's browser when the page reloads
+
+This demonstrates that the server doesn't properly sanitize user input before displaying it. While in this specific case the XSS executes in the attacker's own browser (self-XSS), the same vulnerability could be exploited to affect other users if the feedbacks were stored and displayed to all visitors, or if the malicious payload was reflected in a way that other users could access it.
+
 Cross-Site Scripting (XSS) vulnerabilities can lead to:
 
 - **Session hijacking**: Stealing user session cookies and authentication tokens
@@ -62,8 +73,6 @@ Cross-Site Scripting (XSS) vulnerabilities can lead to:
 - **Malware distribution**: Redirecting users to malicious websites
 - **Account takeover**: Using stolen session tokens to impersonate users
 - **Data exfiltration**: Sending sensitive data to attacker-controlled servers
-
-In this case, the server doesn't properly sanitize user input before displaying it, allowing malicious HTML/JavaScript to be executed in other users' browsers.
 
 ## How to avoid the breach
 
